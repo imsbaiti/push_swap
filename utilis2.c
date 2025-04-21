@@ -1,27 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct_utilis1.c                                   :+:      :+:    :+:   */
+/*   utilis2.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: imsbaiti <imsbaiti@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/20 21:48:32 by imsbaiti          #+#    #+#             */
-/*   Updated: 2025/04/21 00:24:44 by imsbaiti         ###   ########.fr       */
+/*   Created: 2025/04/21 19:58:25 by imsbaiti          #+#    #+#             */
+/*   Updated: 2025/04/21 20:01:51 by imsbaiti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack *ft_lstnew(int value)
+int ft_strcmp(char *s1, char *s2)
 {
-    t_stack * new;
-
-    new = malloc(sizeof(t_stack));
-    if (!new)
-        return (NULL);
-    new->value = value;
-    new->next = NULL;
-    return (new);
+    int i;
+    
+    i = 0;
+    while (s1[i] && s2[i] && s1[i] == s2[i])
+        i++;
+    return (s1[i] - s2[i]);
 }
-
-void ft_lstadd_back(t_stack **lst, t_stack *new)

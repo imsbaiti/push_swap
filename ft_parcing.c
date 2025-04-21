@@ -6,7 +6,7 @@
 /*   By: imsbaiti <imsbaiti@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 00:45:23 by imsbaiti          #+#    #+#             */
-/*   Updated: 2025/04/21 01:25:33 by imsbaiti         ###   ########.fr       */
+/*   Updated: 2025/04/21 21:41:11 by imsbaiti         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,24 +77,28 @@ long    *arr_of_nbrs(char **str, int *size)
     
     i = 0;
     *size = 0;
-    nbr = NULL;
-    while (str[++i])
+    nbr = NULL; //nbr is a pointer to long, initially set to NULL. It will eventually hold the array of parsed numbers.
+    while (str[++i])// Loop through each string in the input array The loop starts at str[1] because str[0] is typically the program name (argv[0]).
     {
-        buff = ft_split((const char *)str[i], ' ');
-        if (check_list(buff) || !buff[0] || !buff)
-        {
+        buff = ft_split((const char *)str[i], ' '); //For example, if str[i] = "42 -123 56", buff will become ["42", "-123", "56"]
+        if (check_list(buff) || !buff[0] || !buff)// Check if the split string is valid, if not, return NULL after cleanup
+        { //check_list(buff) checks if the split parts are valid numbers (i.e., no non-numeric characters).
+
+                /*!buff[0] checks if the buff array is empty (i.e., there were no valid substrings).
+
+                    /*!buff checks if the split failed (i.e., ft_split returned NULL).8*/
             if (nbr)
                 free(nbr);
-            return (free_2dim(buff), NULL);
+            return (free_2dim(buff), NULL);/* Free the split strings and return NULL on error*/ //Free the memory allocated for buff using free_2dim(buff)
         }
-        nbr = increase_arr(nbr, buff,size);
+        nbr = increase_arr(nbr, buff,size);// Increase the array of numbers by converting the split strings to numbers
         if (!nbr)
             return (NULL);
-        free_2dim(buff);
+        free_2dim(buff);// Free the memory allocated for the split strings
         if (!nbr)
-            return (NULL);
+            return (NULL); 
     }
-    return (nbr);
+    return (nbr);// Return the parsed array of numbers
 }
 
 int nbr_is_repeat(long *nbr, int size)
@@ -122,7 +126,7 @@ int ft_parcing(char **av)
     long    *nbr;
     int     size;
 
-    nbr = arr_of_nbrs(av, &size);
+    nbr = arr_of_nbrs(av, &size);// Return the parsed array of numbers
     if (!nbr)
         return (0);
     if (nbr_is_repeat(nbr, size))

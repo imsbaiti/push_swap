@@ -2,7 +2,7 @@
 # define PUSH_SWAP_H
 
 #include <unistd.h>
-#include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 
 
@@ -17,13 +17,30 @@ typedef struct s_stack
 }               t_stack;
 
 
-int ft_is_valid_dijit(char **args);
-void ft_parcing(char **av);
-int ft_isspace(char **args);
-char    *ft_itoa(int n);
-int check_double(char **av);
+/* libft utils */
+char **ft_split(char const *s, char c);
 int ft_atoi(const char *str);
-int ft_dijit(int x);
+int ft_isdijit(char c);
+int find_spaces(char *str);
+void    free_2dim(char **buff);
+int ft_strcmp(char *s1, char *s2);
+/* for parcing */
+int ft_parcing(char **av);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

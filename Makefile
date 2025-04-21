@@ -6,15 +6,15 @@
 #    By: imsbaiti <imsbaiti@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/04/20 23:28:11 by imsbaiti          #+#    #+#              #
-#    Updated: 2025/04/20 23:41:42 by imsbaiti         ###   ########.fr        #
+#    Updated: 2025/04/21 20:13:25 by imsbaiti         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRCS = mandatory/push_swap.c mandatory/ft_atoi.c mandatory/ft_parcing.c \
-	mandatory/ft_itoi.c mandatory/ft_file.c ft_struct_utilis1.c \
+SRCS = push_swap.c ft_split.c ft_parcing.c \
+	utilis1.c utilis2.c\
 
 OBJS = $(SRCS:.c=.o)
 
